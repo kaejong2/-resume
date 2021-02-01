@@ -10,14 +10,6 @@ from visdom import Visdom
 import numpy as np
 
 def init_weight(net, init_type='normal', init_gain=0.02):
-    """Initialize network weights.
-    Parameters:
-        net (network)   -- network to be initialized
-        init_type (str) -- the name of an initialization method: normal | xavier | kaiming | orthogonal
-        init_gain (float)    -- scaling factor for normal, xavier and orthogonal.
-    We use 'normal' in the original pix2pix and CycleGAN paper. But xavier and kaiming might
-    work better for some applications. Feel free to try yourself.
-    """
     def init_func(m):  # define the initialization function
         classname = m.__class__.__name__
         if hasattr(m, 'weight') and (classname.find('Conv') != -1 or classname.find('Linear') != -1):
@@ -77,13 +69,29 @@ def load(ckpt_dir, netG_A2B, netG_B2A, netD_A, netD_B, optimG, optimD):
 
     return netG_A2B, netG_B2A, netD_A, netD_B, optimG, optimD, epoch
 
+def pix2pix_load(ckpt_dir, G, D, optimizerG, optimizerD, epoch):
+    if not os.path.exists(ckpt_dir):
+        epoch = 0
+        return G, D, optimizerG, optimizerD, epoch
+    epoch = []
+    ckpt_list = os.listdir(ckpt_dir)
+    for i in range(len(ckpt_list)):
+        epoch += [int(ckpt_list[i].split('epoch')[1].split('.pth')[0])]
+    epoch.sort()
+    epoch[-1] = 19
+
+
+    dict_model = torch.load("%s/model_epoch%d.pth" % (ckpt_dir,epoch[-1]))
+
+    G.load_state_dict(dict_model['G'])
+    D.load_state_dict(dict_model['D'])
+    optimizerG.load_state_dict(dict_model['optimG'])
+    optimizerD.load_state_dict(dict_model['optimD'])
+
+
+    return G, D, optimizerG, optimizerD, epoch[-1]
 
 def set_requires_grad(nets, requires_grad=False):
-        """Set requies_grad=Fasle for all the networks to avoid unnecessary computations
-        Parameters:
-            nets (network list)   -- a list of networks
-            requires_grad (bool)  -- whether the networks require gradients or not
-        """
         if not isinstance(nets, list):
             nets = [nets]
         for net in nets:
@@ -91,5 +99,11 @@ def set_requires_grad(nets, requires_grad=False):
                 for param in net.parameters():
                     param.requires_grad = requires_grad
 
-def printA(a):
-    print(a)
+
+def save_image(image_tensor):
+    img = image_tensor.to('cpu').detach().numpy().transpose(0,2,3,1)
+    img = img/2.0 *255.0
+    img = img.clip(0,255)
+    img = img.astype(np.uint8)
+    
+    return img

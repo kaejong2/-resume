@@ -26,12 +26,12 @@ class Encoder(nn.Module):
             elif act == "Sigmoid":
                 block += [nn.Sigmoid()]
         if not drop is None:
-            block += [nn.Dropout(0.5)]
+            block += [nn.Dropout2d(0.5)]
         
         self.layer = nn.Sequential(*block)
 
-        def forward(self,x):
-            return self.layer(x)
+    def forward(self, x):
+        return self.layer(x)
 
 
 class Decoder(nn.Module):
@@ -60,8 +60,8 @@ class Decoder(nn.Module):
         
         self.layer = nn.Sequential(*block)
 
-        def forward(self,x):
-            return self.layer(x)
+    def forward(self,x):
+        return self.layer(x)
 
 class Generator(nn.Module):
     def __init__(self, input_channels):
@@ -81,24 +81,24 @@ class Generator(nn.Module):
         self.enc7 = Encoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="LeakyReLU", drop=None)
         self.enc8 = Encoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
-                               norm="Instance", act="LeakyReLU", drop=None)
+                               norm="Instance", act="ReLU", drop=None)
        
         self.dec1 = Decoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="ReLU", drop=True)
-        self.dec2 = Decoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
+        self.dec2 = Decoder(in_features=2*512, out_features=512, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="ReLU", drop=True)
-        self.dec3 = Decoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
+        self.dec3 = Decoder(in_features=2*512, out_features=512, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="ReLU", drop=True)
-        self.dec4 = Decoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
+        self.dec4 = Decoder(in_features=2*512, out_features=512, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="ReLU", drop=False)
-        self.dec5 = Decoder(in_features=512, out_features=256, kernel_size=4, padding=1, stride=2,
+        self.dec5 = Decoder(in_features=2*512, out_features=256, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="ReLU", drop=False)
-        self.dec6 = Decoder(in_features=256, out_features=128, kernel_size=4, padding=1, stride=2,
+        self.dec6 = Decoder(in_features=2*256, out_features=128, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="ReLU", drop=False)
-        self.dec7 = Decoder(in_features=128, out_features=64, kernel_size=4, padding=1, stride=2,
+        self.dec7 = Decoder(in_features=2*128, out_features=64, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="ReLU", drop=False)
-        self.dec8 = Decoder(in_features=64, out_features=3, kernel_size=4, padding=1, stride=2,
-                               norm=None, act="Tanh", drop=False)
+        self.dec8 = Decoder(in_features=2*64, out_features=3, kernel_size=4, padding=1, stride=2,
+                               norm=None, act=None, drop=False)
 
 
     def forward(self, x):
@@ -119,31 +119,32 @@ class Generator(nn.Module):
         x_3 = self.dec6(torch.cat((x3,x_4), dim=1))
         x_2 = self.dec7(torch.cat((x2,x_3), dim=1))
         x_1 = self.dec8(torch.cat((x1,x_2), dim=1))
-
-        return x_1
+        
+        x = torch.tanh(x_1)
+        return x
         
 
 
 class Discriminator(nn.Module):
     def __init__(self, output_channels):
         super(Discriminator, self).__init__()
-        self.layer1 = Encoder(in_features=3, out_features=64, kernel_size=4, padding=1, stride=2,
+        self.layer1 = Encoder(in_features=2*3, out_features=64, kernel_size=4, padding=1, stride=2,
                                norm=None, act="LeakyReLU", drop=None)
         self.layer2 = Encoder(in_features=64, out_features=128, kernel_size=4, padding=1, stride=2,
-                               norm="Batch", act="LeakyReLU", drop=None)
+                               norm="Instance", act="LeakyReLU", drop=None)
         self.layer3 = Encoder(in_features=128, out_features=256, kernel_size=4, padding=1, stride=2,
-                               norm="Batch", act="LeakyReLU", drop=None)
+                               norm="Instance", act="LeakyReLU", drop=None)
         self.layer4 = Encoder(in_features=256, out_features=512, kernel_size=4, padding=1, stride=2,
-                               norm="Batch", act="LeakyReLU", drop=None)
-        self.layer5 = Encoder(in_features=256, out_features=output_channels, kernel_size=4, padding=1, stride=2,
-                               norm="Batch", act="Sigmoid", drop=None)
-                               
+                               norm="Instance", act="LeakyReLU", drop=None)
+        self.final_layer = nn.Conv2d(512, 1, 4, padding=1, bias=False)
+
+
     def forward(self, x):
         x = self.layer1(x)
         x = self.layer2(x)
         x = self.layer3(x)
         x = self.layer4(x)
-        x = self.layer5(x)
-        
+        x = self.final_layer(x)
+     
         return x        
 

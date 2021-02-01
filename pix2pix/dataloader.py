@@ -1,35 +1,33 @@
 import numpy as np
 import torch
-import matplotlib.pyplot as plt
+from PIL import Image
+
 import os
 import torchvision.transforms as transforms
 
 class data_loader(torch.utils.data.Dataset):
-    def __init__(self, data_dir, nch=3, transform=[]):
+    def __init__(self, data_dir, transform=[]):
         self.data_dir = data_dir
         self.transform = transform
-        self.nch = nch
         self.data_list = os.listdir(data_dir)
-        self.transform = transforms.Compose([transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]), transforms.ToTensor()])
+
 
     def __getitem__(self, index):
-        data = plt.imread(os.path.join(self.data_dir, self.data_list[index]))[:, :, :self.nch]
+        img = Image.open(os.path.join(self.data_dir, self.data_list[index])).convert("RGB")
+        w, h = img.size
 
-        if data.dtype == np.uint8:
-            data = data / 255.0
+        A = img.crop((0, 0, w/2, h))
+        B = img.crop((w/2, 0, w, h))
 
-        half = int(data.shape[1]/2)
+        if np.random.random() < 0.5:
+            A = Image.fromarray(np.array(A)[:,::-1, :], "RGB")
+            B = Image.fromarray(np.array(B)[:,::-1, :], "RGB")
 
-        A = data[:, :half, :]
-        B = data[:, half:, :]
+        A = self.transform(A)
+        B = self.transform(B)
 
-        data = {'input': A, 'output': B}
         
-
-        if self.transform:
-            data = self.transform(data)
-
-        return data
+        return B, A
 
     def __len__(self):
         return len(self.data_list)
