@@ -38,7 +38,7 @@
 
 ---
 
-* To test using trained network, set **[scope name]** defined in the **train** phase.
+* To test using trained network, set **ckpt_path** defined in the **train** phase.
 * Generated images are saved in the **images** subfolder along with **[result directory]** folder.
 
 
