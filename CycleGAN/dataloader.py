@@ -5,7 +5,10 @@ import os
 from arguments import Arguments
 from torch.utils.data import Dataset, DataLoader
 from PIL import Image
+
+import matplotlib.pyplot as plt
 import torchvision.transforms as transforms
+import numpy as np
 
 class ImageDataset(Dataset):
     def __init__(self, root, transforms_=None, unaligned=False, mode='train'):
@@ -48,3 +51,4 @@ def data_loader(args):
 # for i, data in enumerate(data):
 #     print(data["A"])
 #     print(data["B"])
+

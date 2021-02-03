@@ -3,7 +3,6 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torchvision
 
-
 class Encoder(nn.Module):
     def __init__(self, in_features, out_features, kernel_size=3, padding=1, stride=1, norm=None, act=None, drop=None):
         super(Encoder, self).__init__()
@@ -11,21 +10,21 @@ class Encoder(nn.Module):
         block = []
         block += [nn.Conv2d(in_features, out_features, kernel_size=kernel_size, stride=stride, padding=padding)]
 
-        if not norm is None:
+        if not norm is False:
             if norm == "Batch":
                 block += [nn.BatchNorm2d(out_features)]
             elif norm == "Instance":
                 block += [nn.InstanceNorm2d(out_features)]
-        if not act is None:
+        if not act is False:
             if act == "ReLU":
-                block += [nn.ReLU()]
+                block += [nn.ReLU(inplace=True)]
             elif act == "LeakyReLU":
-                block += [nn.LeakyReLU(0.2)]
+                block += [nn.LeakyReLU(0.2, inplace=True)]
             elif act == "Tanh":
                 block += [nn.Tanh()]
             elif act == "Sigmoid":
                 block += [nn.Sigmoid()]
-        if not drop is None:
+        if not drop is False:
             block += [nn.Dropout2d(0.5)]
         
         self.layer = nn.Sequential(*block)
@@ -41,16 +40,16 @@ class Decoder(nn.Module):
         block = []
         block += [nn.ConvTranspose2d(in_features, out_features, kernel_size=kernel_size, stride=stride, padding=padding)]
 
-        if not norm is None:
+        if not norm is False:
             if norm == "Batch":
                 block += [nn.BatchNorm2d(out_features)]
             elif norm == "Instance":
                 block += [nn.InstanceNorm2d(out_features)]
-        if not act is None:
+        if not act is False:
             if act == "ReLU":
-                block += [nn.ReLU()]
+                block += [nn.ReLU(inplace=True)]
             elif act == "LeakyReLU":
-                block += [nn.LeakyReLU(0.2)]
+                block += [nn.LeakyReLU(0.2,inplace=True)]
             elif act == "Tanh":
                 block += [nn.Tanh()]
             elif act == "Sigmoid":
@@ -67,21 +66,21 @@ class Generator(nn.Module):
     def __init__(self, input_channels):
         super(Generator, self).__init__()
         self.enc1 = Encoder(in_features=input_channels, out_features=64, kernel_size=4, padding=1, stride=2,
-                               norm=None, act="LeakyReLU", drop=None)
+                               norm=False, act="LeakyReLU", drop=False)
         self.enc2 = Encoder(in_features=64, out_features=128, kernel_size=4, padding=1, stride=2,
-                               norm="Instance", act="LeakyReLU", drop=None)
+                               norm="Instance", act="LeakyReLU", drop=False)
         self.enc3 = Encoder(in_features=128, out_features=256, kernel_size=4, padding=1, stride=2,
-                               norm="Instance", act="LeakyReLU", drop=None)
+                               norm="Instance", act="LeakyReLU", drop=False)
         self.enc4 = Encoder(in_features=256, out_features=512, kernel_size=4, padding=1, stride=2,
-                               norm="Instance", act="LeakyReLU", drop=None)
+                               norm="Instance", act="LeakyReLU", drop=False)
         self.enc5 = Encoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
-                               norm="Instance", act="LeakyReLU", drop=None)
+                               norm="Instance", act="LeakyReLU", drop=False)
         self.enc6 = Encoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
-                               norm="Instance", act="LeakyReLU", drop=None)
+                               norm="Instance", act="LeakyReLU", drop=False)
         self.enc7 = Encoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
-                               norm="Instance", act="LeakyReLU", drop=None)
+                               norm="Instance", act="LeakyReLU", drop=False)
         self.enc8 = Encoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
-                               norm="Instance", act="ReLU", drop=None)
+                               norm="Instance", act="ReLU", drop=False)
        
         self.dec1 = Decoder(in_features=512, out_features=512, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="ReLU", drop=True)
@@ -98,7 +97,7 @@ class Generator(nn.Module):
         self.dec7 = Decoder(in_features=2*128, out_features=64, kernel_size=4, padding=1, stride=2,
                                norm="Instance", act="ReLU", drop=False)
         self.dec8 = Decoder(in_features=2*64, out_features=3, kernel_size=4, padding=1, stride=2,
-                               norm=None, act=None, drop=False)
+                               norm=False, act=False, drop=False)
 
 
     def forward(self, x):
@@ -122,8 +121,6 @@ class Generator(nn.Module):
         
         x = torch.tanh(x_1)
         return x
-        
-
 
 class Discriminator(nn.Module):
     def __init__(self, output_channels):

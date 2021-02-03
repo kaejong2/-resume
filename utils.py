@@ -8,6 +8,7 @@ from torch.autograd import Variable
 import torch
 from visdom import Visdom
 import numpy as np
+from torch.optim import lr_scheduler
 
 def init_weight(net, init_type='normal', init_gain=0.02):
     def init_func(m):  # define the initialization function
@@ -107,3 +108,17 @@ def save_image(image_tensor):
     img = img.astype(np.uint8)
     
     return img
+
+
+def set_requires_grad(nets, requires_grad=False):
+    """Set requies_grad=Fasle for all the networks to avoid unnecessary computations
+    Parameters:
+        nets (network list)   -- a list of networks
+        requires_grad (bool)  -- whether the networks require gradients or not
+    """
+    if not isinstance(nets, list):
+        nets = [nets]
+    for net in nets:
+        if net is not None:
+            for param in net.parameters():
+                param.requires_grad = requires_grad
