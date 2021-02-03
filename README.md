@@ -9,7 +9,7 @@
 
 # Train pix2pix or cycleGAN with PyTorch
 
-## Prerequisites
+## Requirment
 - Python                 3.7+
 - torch                  1.7.1+cu110
 - torchvision            0.8.2+cu110
