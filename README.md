@@ -24,7 +24,7 @@
 
 ## Training
 
-    $ python main.py --mode train \
+    $ python main.py --mode train 
 
 ---
 
@@ -34,7 +34,7 @@
 
 
 ## Test
-    $ python main.py --mode test \
+    $ python main.py --mode test 
 
 ---
 
@@ -44,8 +44,7 @@
 
 ## Tensorboard
 
-    $ tensorboard --logdir ./log/* \
-                  --port 6006
+    $ tensorboard --logdir /log/* --port 6006
                   
 After the above comment executes, go **http://localhost:6006**
 
