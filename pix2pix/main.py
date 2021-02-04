@@ -111,9 +111,9 @@ class pix2pix():
                        loss_G_GAN, loss_G_l1,
                        loss_D_real, loss_D_fake))
         
-            if epoch % 10==0:
+            if epoch % 100==0:
                 print("Tensorboard")
-                # pix2pix_save(ckpt_path, self.G, self.D, self.optimizerG, self.optimizerD, epoch)
+                pix2pix_save(ckpt_path, self.G, self.D, self.optimizerG, self.optimizerD, epoch)
                 data = self.transform_inv(data)
                 output = self.transform_inv(output)
                 label = self.transform_inv(label)
