@@ -39,7 +39,7 @@
 - Numpy / Matplotlib / Scikit-learn / Pillow / Tensorboard / ..
 
 ### Deep Learning
-딥러닝 framework(pytorch)를 활용하여 다음과 같은 Network architecture를 구현할 수 있습니다.
+딥러닝 framework(pytorch)를 활용하여 다음과 같은 Network architecture를 구현할 수 있습니다. \
 또한 최신 논문을 읽과 이해 및 구현이 가능합니다. ( 논문에 Network Denotation이 **제대로** 되어 있다면..)
 - Classification model (VGG, ResNet ..)
 - Generative model (DGGAN, pix2pix, cycleGAN ..)
