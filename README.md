@@ -1,10 +1,9 @@
 # 이력서
 
-[![HitCount](http://hits.dwyl.io/JSpiner/RESUME.svg)](http://hitdwyl.io/JSpiner/RESUME)
 ![status](https://img.shields.io/badge/working-brightgreen.svg)
 
 ## 소개
-![프로필이미지](https://github.com/JSpiner/RESUME/raw/master/images/profile.jpeg)
+![프로필이미지](https://github.com/JSpiner/RESUME/raw/master/imes/profile.jpeg)
 - 이름: 이종진
 - 군필여부: 병장 만기 전역 ( 3군사령부 1101공병단 133대대 본부중대, 2013.10 ~ 2015.07)
 - 취미: 여행, 게임, **카페코딩**, 클라이밍
