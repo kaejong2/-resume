@@ -1,7 +1,6 @@
 # 이력서
 
-![status](https://github.com/kaejong2)
-![GitHub last commit](https://img.shields.io/github/last-commit/JSpiner/RESUME.svg)
+
 ## 소개
 ![프로필이미지](https://github.com/JSpiner/RESUME/raw/master/imes/profile.jpeg)
 - 이름: 이종진
