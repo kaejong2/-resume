@@ -1,6 +1,6 @@
 # 이력서
 
-![status](https://img.shields.io/badge/working-brightgreen.svg)
+![status](https://github.com/kaejong2)
 
 ## 소개
 ![프로필이미지](https://github.com/JSpiner/RESUME/raw/master/imes/profile.jpeg)
