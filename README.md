@@ -1,20 +1,18 @@
 # 이력서
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 [![HitCount](http://hits.dwyl.io/JSpiner/RESUME.svg)](http://hits.dwyl.io/JSpiner/RESUME)
-![contributor](https://img.shields.io/github/contributors/JSpiner/RESUME.svg)
-![GitHub last commit](https://img.shields.io/github/last-commit/JSpiner/RESUME.svg)
 ![status](https://img.shields.io/badge/working-brightgreen.svg)
 
 ## 소개
 ![프로필이미지](https://github.com/JSpiner/RESUME/raw/master/images/profile.jpeg)
-- 이름: 정성민
-- 군필여부: 병역특례로 복무완료
-- 취미: 자전거, **해커톤**, 칵테일, 사격, 등산, **카페코딩**, 피아노, 달리기, 여행, 캠핑
-- Email: jspiner@naver.com
-- GitHub: [github.com/jspiner](https://github.com/jspiner)
-- LinkedIn: [linkedin.com/in/jspiner](https://linkedin.com/in/jspiner)
+- 이름: 이종진
+- 군필여부: 3군사령부 1101공병단 133대대 본부중대 병장 만기 전역
+- 취미: 클라이밍, **카페코딩**, 여행, 게임
+- Email: kaejong2@Gmail.com
+- GitHub: [github.com/kaejong2](https://github.com/kaejong2)
+
 ```
-엔지니어로 살아가면서, 올바름을 추구하는걸 가장 큰 가치로 여기고 있습니다.
+어떠한 일에 있어서 당장 최선을 다하자.
 ```
 
 ![깃허브](https://github.com/JSpiner/RESUME/raw/master/images/github.png)
