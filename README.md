@@ -51,7 +51,8 @@ Linux / MacOS 등 다양한 환경에서의 작업 경험이 있습니다.
 
 ### TODO
 항상 **배우는 자세**로... <br/>
-현재 관심있는 것.
+
+현재 관심있는 것
 - Object / Salient Object Detection
 
 꼭 배워보고 싶은 것
