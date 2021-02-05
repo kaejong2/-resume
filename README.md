@@ -36,25 +36,26 @@
 클라이언트에 필요한 기술을 테스트하고 검증할 수 있을정도의 서버 스킬을 가지고 있습니다.
 - PyTorch / Torchvision
 - OpenCV / Dlib
-- Numpy / Matplotlib / Scikit-learn / Pillow / .. 
+- Numpy / Matplotlib / Scikit-learn / Pillow / Tensorboard / ..
 
 ### Deep Learning
 딥러닝 framework(pytorch)를 활용하여 다음과 같은 Network architecture를 구현할 수 있습니다.
 - Classification model
 - Generative model
 
-### Linux / MacOS
-다양한 환경에서 작업을 수행할 수 있습니다.
+### 작업환경
+Linux / MacOS 등 다양한 환경에서의 작업 경험이 있습니다.
 - os / sys
 - pip / anaconda
+- Visual Studio Code
 
 ### TODO
 **새로운것**을 배우는건 언제나 즐거운 일입니다. <br/>
 현재는 아래것들을 익히고 있습니다.
-- React + Kotlin JS
+- Object / Salient Object Detection
 
 앞으로는 아래것들을 익히려고 합니다.
-- Domain Driven Design
+- Backend (?)
 
 
 여기까지 읽어주셔서 감사합니다. <br/>
