@@ -1,6 +1,6 @@
 # 이력서
 
-[![HitCount](http://hits.dwyl.io/JSpiner/RESUME.svg)](http://hits.dwyl.io/JSpiner/RESUME)
+[![HitCount](http://hits.dwyl.io/JSpiner/RESUME.svg)](http://hitdwyl.io/JSpiner/RESUME)
 ![status](https://img.shields.io/badge/working-brightgreen.svg)
 
 ## 소개
