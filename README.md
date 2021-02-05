@@ -1,6 +1,7 @@
 # 이력서
 
 ![status](https://github.com/kaejong2)
+![GitHub last commit](https://github.com/kaejong2)
 
 ## 소개
 ![프로필이미지](https://github.com/JSpiner/RESUME/raw/master/imes/profile.jpeg)
