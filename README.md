@@ -40,8 +40,9 @@
 
 ### Deep Learning
 딥러닝 framework(pytorch)를 활용하여 다음과 같은 Network architecture를 구현할 수 있습니다.
-- Classification model
-- Generative model
+또한 최신 논문을 읽과 이해 및 구현이 가능합니다. ( 논문에 Network Denotation이 **제대로** 되어 있다면..)
+- Classification model (VGG, ResNet ..)
+- Generative model (DGGAN, pix2pix, cycleGAN ..)
 
 ### 작업환경
 Linux / MacOS 등 다양한 환경에서의 작업 경험이 있습니다.
