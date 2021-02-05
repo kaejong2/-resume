@@ -15,7 +15,6 @@
 어떠한 일에 있어서 당장 최선을 다하자.
 ```
 
-![깃허브](https://github.com/JSpiner/RESUME/raw/master/images/github.png)
 
 
 ## 학력
