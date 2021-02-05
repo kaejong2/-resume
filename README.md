@@ -34,11 +34,19 @@
 
 ### Python
 클라이언트에 필요한 기술을 테스트하고 검증할 수 있을정도의 서버 스킬을 가지고 있습니다.
-- python - flask/gunicorn
-- nodejs
-- celery 
-- rabbitmq / messageQ / redis
-- docker 
+- PyTorch / Torchvision
+- OpenCV / Dlib
+- Numpy / Matplotlib / Scikit-learn / Pillow / .. 
+
+### Deep Learning
+딥러닝 framework(pytorch)를 활용하여 다음과 같은 Network architecture를 구현할 수 있습니다.
+- Classification model
+- Generative model
+
+### Linux / MacOS
+다양한 환경에서 작업을 수행할 수 있습니다.
+- os / sys
+- pip / anaconda
 
 ### TODO
 **새로운것**을 배우는건 언제나 즐거운 일입니다. <br/>
