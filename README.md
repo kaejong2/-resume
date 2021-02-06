@@ -30,7 +30,7 @@
 - libtorch
 
 ### Python
-클라이언트에 필요한 기술을 테스트하고 검증할 수 있을정도의 서버 스킬을 가지고 있습니다.
+Python에서 제공되는 library를 활용하여 수식적 계산, 이미지 처리를 수행할 수 있으며, 딥러닝 framework를 다룰수 있습니다.
 - PyTorch / Torchvision
 - OpenCV / Dlib
 - Numpy / Matplotlib / Scikit-learn / Pillow / Tensorboard / ..
