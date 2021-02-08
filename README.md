@@ -6,7 +6,7 @@
 - 이름: 이종진
 - 병역사항: 군필, 육군 병장 만기 제대 ( 3군사령부 1101공병단 133대대 본부중대, 2013.10 ~ 2015.07)
 - 취미:  **카페코딩**, 운동(클라이밍, 복싱), 여행, 게임
-- Email: kaejong2@Gmail.com
+- Email: kaejong2@gmail.com
 - GitHub: [github.com/kaejong2](https://github.com/kaejong2)
 
 ```
@@ -69,5 +69,5 @@ Linux / MacOS 등 다양한 환경에서의 작업 경험이 있습니다.
 
 
 여기까지 읽어주셔서 감사합니다. <br/>
-부족한 부분이나 더 궁금하신 내용이 있다면 [이슈](https://github.com/JSpiner/RESUME/issues)로 남겨주시겨나, jspiner@naver.com으로 연락주세요.<br/>
+부족한 부분이나 더 궁금하신 내용이 있다면 [이슈](https://github.com/kaejong2/-resume/issues)로 남겨주시겨나, kaejong2@gmail.com으로 연락주세요.<br/>
 감사합니다.
