@@ -2,7 +2,7 @@
 
 
 ## 소개
-![프로필이미지](https://github.com/kaejong2/resume-image.jpg)
+![프로필이미지](https://github.com/kaejong2/-resume/blob/master/resume-image.png)
 - 이름: 이종진
 - 군필여부: 병장 만기 전역 ( 3군사령부 1101공병단 133대대 본부중대, 2013.10 ~ 2015.07)
 - 취미: 여행, 게임, **카페코딩**, 클라이밍
