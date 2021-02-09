@@ -19,10 +19,13 @@
 - 국민대학교 전자공학부 전기전자공학과 인공지능 연구실 석사과정 졸업(2019 ~ 2021)\
 - 대학원(석사)졸업
 
-## 졸업작품
+## 학위논문 / 프로젝트
 - Tracking 기술을 활용한 자동 얼굴 추적 카메라
-- 사실적인 망막 영상 합성을 위한 적대적 생성 네트워크(GAN) 기법의 활용
+
+- 사실적인 망막 영상 합성을 위한 적대적 생성 네트워크(GAN) 기법의 활용 \
   (Application os GAN Based Methods for Realistic Retinal Fundus Image Synthesis)
+  
+  
 
 ## 사용 기술
 ### C/C++
