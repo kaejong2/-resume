@@ -10,7 +10,7 @@
 - GitHub: [github.com/kaejong2](https://github.com/kaejong2)
 
 ```
-어떠한 일에 있어서  최선을 다하자.
+어떠한 일에 있어서 항상 최선을 다하자. 무슨 일이든 얻는 게 있을 것이다.
 ```
 
 
