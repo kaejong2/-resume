@@ -10,7 +10,7 @@
 - GitHub: [github.com/kaejong2](https://github.com/kaejong2)
 
 ```
-어떠한 일에 있어서 당장 최선을 다하자.
+어떠한 일에 있어서  최선을 다하자.
 ```
 
 
